@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allow_fast_forward_only_merge** | **bool** |  | [optional] 
+**allow_manual_merge** | **bool** |  | [optional] 
 **allow_merge_commits** | **bool** |  | [optional] 
 **allow_rebase** | **bool** |  | [optional] 
 **allow_rebase_explicit** | **bool** |  | [optional] 
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 **allow_squash_merge** | **bool** |  | [optional] 
 **archived** | **bool** |  | [optional] 
 **archived_at** | **datetime** |  | [optional] 
+**autodetect_manual_merge** | **bool** |  | [optional] 
 **avatar_url** | **str** |  | [optional] 
 **clone_url** | **str** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
@@ -26,6 +28,7 @@ Name | Type | Description | Notes
 **forks_count** | **int** |  | [optional] 
 **full_name** | **str** |  | [optional] 
 **has_actions** | **bool** |  | [optional] 
+**has_code** | **bool** |  | [optional] 
 **has_issues** | **bool** |  | [optional] 
 **has_packages** | **bool** |  | [optional] 
 **has_projects** | **bool** |  | [optional] 

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**description** | **str** | Description of the variable to update | [optional] 
 **name** | **str** | New name for the variable. If the field is empty, the variable name won&#39;t be updated. | [optional] 
 **value** | **str** | Value of the variable to update | 
 

@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**active** | **bool** |  | [optional] 
-**authorization_header** | **str** |  | [optional] 
-**branch_filter** | **str** |  | [optional] 
-**config** | **dict(str, str)** |  | [optional] 
-**events** | **list[str]** |  | [optional] 
+**active** | **bool** | Whether the webhook is active and will be triggered | [optional] 
+**authorization_header** | **str** | Authorization header to include in webhook requests | [optional] 
+**branch_filter** | **str** | Branch filter pattern to determine which branches trigger the webhook | [optional] 
+**config** | **dict(str, str)** | Configuration settings for the webhook | [optional] 
+**events** | **list[str]** | List of events that trigger this webhook | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

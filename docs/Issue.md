@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **ref** | **str** |  | [optional] 
 **repository** | [**RepositoryMeta**](RepositoryMeta.md) |  | [optional] 
 **state** | [**StateType**](StateType.md) |  | [optional] 
+**time_estimate** | **int** |  | [optional] 
 **title** | **str** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 **url** | **str** |  | [optional] 

@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**can_create_org_repo** | **bool** |  | [optional] 
-**description** | **str** |  | [optional] 
-**includes_all_repositories** | **bool** |  | [optional] 
+**can_create_org_repo** | **bool** | Whether the team can create repositories in the organization | [optional] 
+**description** | **str** | The description of the team | [optional] 
+**includes_all_repositories** | **bool** | Whether the team has access to all repositories in the organization | [optional] 
 **name** | **str** |  | 
 **permission** | **str** |  | [optional] 
 **units** | **list[str]** |  | [optional] 

@@ -6,11 +6,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_current_user_repo**](UserApi.md#create_current_user_repo) | **POST** /user/repos | Create a repository
 [**create_user_variable**](UserApi.md#create_user_variable) | **POST** /user/actions/variables/{variablename} | Create a user-level variable
+[**delete_user_runner**](UserApi.md#delete_user_runner) | **DELETE** /user/actions/runners/{runner_id} | Delete an user-level runner
 [**delete_user_secret**](UserApi.md#delete_user_secret) | **DELETE** /user/actions/secrets/{secretname} | Delete a secret in a user scope
 [**delete_user_variable**](UserApi.md#delete_user_variable) | **DELETE** /user/actions/variables/{variablename} | Delete a user-level variable which is created by current doer
+[**get_user_runner**](UserApi.md#get_user_runner) | **GET** /user/actions/runners/{runner_id} | Get an user-level runner
+[**get_user_runners**](UserApi.md#get_user_runners) | **GET** /user/actions/runners | Get user-level runners
 [**get_user_settings**](UserApi.md#get_user_settings) | **GET** /user/settings | Get user settings
 [**get_user_variable**](UserApi.md#get_user_variable) | **GET** /user/actions/variables/{variablename} | Get a user-level variable which is created by current doer
 [**get_user_variables_list**](UserApi.md#get_user_variables_list) | **GET** /user/actions/variables | Get the user-level list of variables which is created by current doer
+[**get_user_workflow_jobs**](UserApi.md#get_user_workflow_jobs) | **GET** /user/actions/jobs | Get workflow jobs
+[**get_user_workflow_runs**](UserApi.md#get_user_workflow_runs) | **GET** /user/actions/runs | Get workflow runs
 [**get_verification_token**](UserApi.md#get_verification_token) | **GET** /user/gpg_key_token | Get a Token to verify
 [**update_user_secret**](UserApi.md#update_user_secret) | **PUT** /user/actions/secrets/{secretname} | Create or Update a secret value in a user scope
 [**update_user_settings**](UserApi.md#update_user_settings) | **PATCH** /user/settings | Update user settings
@@ -21,6 +26,7 @@ Method | HTTP request | Description
 [**user_check_user_block**](UserApi.md#user_check_user_block) | **GET** /user/blocks/{username} | Check if a user is blocked by the authenticated user
 [**user_create_hook**](UserApi.md#user_create_hook) | **POST** /user/hooks | Create a hook
 [**user_create_o_auth2_application**](UserApi.md#user_create_o_auth2_application) | **POST** /user/applications/oauth2 | creates a new OAuth2 application
+[**user_create_runner_registration_token**](UserApi.md#user_create_runner_registration_token) | **POST** /user/actions/runners/registration-token | Get an user&#39;s actions runner registration token
 [**user_create_token**](UserApi.md#user_create_token) | **POST** /users/{username}/tokens | Create an access token
 [**user_current_check_following**](UserApi.md#user_current_check_following) | **GET** /user/following/{username} | Check whether a user is followed by the authenticated user
 [**user_current_check_starring**](UserApi.md#user_current_check_starring) | **GET** /user/starred/{owner}/{repo} | Whether the authenticated is starring the repo
@@ -239,6 +245,86 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_user_runner**
+> delete_user_runner(runner_id)
+
+Delete an user-level runner
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
+runner_id = 'runner_id_example' # str | id of the runner
+
+try:
+    # Delete an user-level runner
+    api_instance.delete_user_runner(runner_id)
+except ApiException as e:
+    print("Exception when calling UserApi->delete_user_runner: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **runner_id** | **str**| id of the runner | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_user_secret**
 > delete_user_secret(secretname)
 
@@ -383,6 +469,162 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variablename** | **str**| name of the variable | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_runner**
+> get_user_runner(runner_id)
+
+Get an user-level runner
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
+runner_id = 'runner_id_example' # str | id of the runner
+
+try:
+    # Get an user-level runner
+    api_instance.get_user_runner(runner_id)
+except ApiException as e:
+    print("Exception when calling UserApi->get_user_runner: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **runner_id** | **str**| id of the runner | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_runners**
+> get_user_runners()
+
+Get user-level runners
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
+
+try:
+    # Get user-level runners
+    api_instance.get_user_runners()
+except ApiException as e:
+    print("Exception when calling UserApi->get_user_runners: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -628,6 +870,184 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[ActionVariable]**](ActionVariable.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_workflow_jobs**
+> ActionWorkflowJobsResponse get_user_workflow_jobs(status=status, page=page, limit=limit)
+
+Get workflow jobs
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
+status = 'status_example' # str | workflow status (pending, queued, in_progress, failure, success, skipped) (optional)
+page = 56 # int | page number of results to return (1-based) (optional)
+limit = 56 # int | page size of results (optional)
+
+try:
+    # Get workflow jobs
+    api_response = api_instance.get_user_workflow_jobs(status=status, page=page, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->get_user_workflow_jobs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **str**| workflow status (pending, queued, in_progress, failure, success, skipped) | [optional] 
+ **page** | **int**| page number of results to return (1-based) | [optional] 
+ **limit** | **int**| page size of results | [optional] 
+
+### Return type
+
+[**ActionWorkflowJobsResponse**](ActionWorkflowJobsResponse.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_workflow_runs**
+> ActionWorkflowRunsResponse get_user_workflow_runs(event=event, branch=branch, status=status, actor=actor, head_sha=head_sha, page=page, limit=limit)
+
+Get workflow runs
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
+event = 'event_example' # str | workflow event name (optional)
+branch = 'branch_example' # str | workflow branch (optional)
+status = 'status_example' # str | workflow status (pending, queued, in_progress, failure, success, skipped) (optional)
+actor = 'actor_example' # str | triggered by user (optional)
+head_sha = 'head_sha_example' # str | triggering sha of the workflow run (optional)
+page = 56 # int | page number of results to return (1-based) (optional)
+limit = 56 # int | page size of results (optional)
+
+try:
+    # Get workflow runs
+    api_response = api_instance.get_user_workflow_runs(event=event, branch=branch, status=status, actor=actor, head_sha=head_sha, page=page, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->get_user_workflow_runs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **event** | **str**| workflow event name | [optional] 
+ **branch** | **str**| workflow branch | [optional] 
+ **status** | **str**| workflow status (pending, queued, in_progress, failure, success, skipped) | [optional] 
+ **actor** | **str**| triggered by user | [optional] 
+ **head_sha** | **str**| triggering sha of the workflow run | [optional] 
+ **page** | **int**| page number of results to return (1-based) | [optional] 
+ **limit** | **int**| page size of results | [optional] 
+
+### Return type
+
+[**ActionWorkflowRunsResponse**](ActionWorkflowRunsResponse.md)
 
 ### Authorization
 
@@ -1093,7 +1513,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | user to block
+username = 'username_example' # str | username of the user to block
 note = 'note_example' # str | optional note for the block (optional)
 
 try:
@@ -1107,7 +1527,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| user to block | 
+ **username** | **str**| username of the user to block | 
  **note** | **str**| optional note for the block | [optional] 
 
 ### Return type
@@ -1175,8 +1595,8 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of following user
-target = 'target_example' # str | username of followed user
+username = 'username_example' # str | username of the following user
+target = 'target_example' # str | username of the followed user
 
 try:
     # Check if one user is following another user
@@ -1189,8 +1609,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of following user | 
- **target** | **str**| username of followed user | 
+ **username** | **str**| username of the following user | 
+ **target** | **str**| username of the followed user | 
 
 ### Return type
 
@@ -1257,7 +1677,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | user to check
+username = 'username_example' # str | username of the user to check
 
 try:
     # Check if a user is blocked by the authenticated user
@@ -1270,7 +1690,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| user to check | 
+ **username** | **str**| username of the user to check | 
 
 ### Return type
 
@@ -1449,6 +1869,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **user_create_runner_registration_token**
+> user_create_runner_registration_token()
+
+Get an user's actions runner registration token
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
+
+try:
+    # Get an user's actions runner registration token
+    api_instance.user_create_runner_registration_token()
+except ApiException as e:
+    print("Exception when calling UserApi->user_create_runner_registration_token: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **user_create_token**
 > AccessToken user_create_token(username, body=body)
 
@@ -1499,7 +1995,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose token is to be created
 body = giteapy.CreateAccessTokenOption() # CreateAccessTokenOption |  (optional)
 
 try:
@@ -1514,7 +2010,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose token is to be created | 
  **body** | [**CreateAccessTokenOption**](CreateAccessTokenOption.md)|  | [optional] 
 
 ### Return type
@@ -1582,7 +2078,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of followed user
+username = 'username_example' # str | username of the user to check for authenticated followers
 
 try:
     # Check whether a user is followed by the authenticated user
@@ -1595,7 +2091,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of followed user | 
+ **username** | **str**| username of the user to check for authenticated followers | 
 
 ### Return type
 
@@ -1744,7 +2240,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user to unfollow
+username = 'username_example' # str | username of the user to unfollow
 
 try:
     # Unfollow a user
@@ -1757,7 +2253,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user to unfollow | 
+ **username** | **str**| username of the user to unfollow | 
 
 ### Return type
 
@@ -2973,7 +3469,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user to follow
+username = 'username_example' # str | username of the user to follow
 
 try:
     # Follow a user
@@ -2986,7 +3482,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user to follow | 
+ **username** | **str**| username of the user to follow | 
 
 ### Return type
 
@@ -3222,7 +3718,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose token is to be deleted
 token = 'token_example' # str | token to be deleted, identified by ID and if not available by name
 
 try:
@@ -3236,7 +3732,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose token is to be deleted | 
  **token** | **str**| token to be deleted, identified by ID and if not available by name | 
 
 ### Return type
@@ -3703,7 +4199,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user to get
+username = 'username_example' # str | username of the user whose data is to be listed
 
 try:
     # Get a user
@@ -3717,7 +4213,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user to get | 
+ **username** | **str**| username of the user whose data is to be listed | 
 
 ### Return type
 
@@ -3861,7 +4357,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user to get
+username = 'username_example' # str | username of the user whose heatmap is to be obtained
 
 try:
     # Get a user's heatmap
@@ -3875,7 +4371,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user to get | 
+ **username** | **str**| username of the user whose heatmap is to be obtained | 
 
 ### Return type
 
@@ -4346,7 +4842,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of to user whose access tokens are to be listed
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -4362,7 +4858,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of to user whose access tokens are to be listed | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -4431,7 +4927,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose activity feeds are to be listed
 only_performed_by = true # bool | if true, only show actions performed by the requested user (optional)
 _date = '2013-10-20' # date | the date of the activities to be found (optional)
 page = 56 # int | page number of results to return (1-based) (optional)
@@ -4449,7 +4945,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose activity feeds are to be listed | 
  **only_performed_by** | **bool**| if true, only show actions performed by the requested user | [optional] 
  **_date** | **date**| the date of the activities to be found | [optional] 
  **page** | **int**| page number of results to return (1-based) | [optional] 
@@ -4680,7 +5176,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose followers are to be listed
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -4696,7 +5192,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose followers are to be listed | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -4765,7 +5261,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose followed users are to be listed
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -4781,7 +5277,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose followed users are to be listed | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -4850,7 +5346,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose GPG key list is to be obtained
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -4866,7 +5362,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose GPG key list is to be obtained | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -5018,7 +5514,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose public keys are to be listed
 fingerprint = 'fingerprint_example' # str | fingerprint of the key (optional)
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
@@ -5035,7 +5531,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose public keys are to be listed | 
  **fingerprint** | **str**| fingerprint of the key | [optional] 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
@@ -5105,7 +5601,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose owned repos are to be listed
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -5121,7 +5617,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose owned repos are to be listed | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -5190,7 +5686,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of user
+username = 'username_example' # str | username of the user whose starred repos are to be listed
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -5206,7 +5702,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of user | 
+ **username** | **str**| username of the user whose starred repos are to be listed | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -5275,7 +5771,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | username of the user
+username = 'username_example' # str | username of the user whose watched repos are to be listed
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -5291,7 +5787,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| username of the user | 
+ **username** | **str**| username of the user whose watched repos are to be listed | 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -5530,7 +6026,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.UserApi(giteapy.ApiClient(configuration))
-username = 'username_example' # str | user to unblock
+username = 'username_example' # str | username of the user to unblock
 
 try:
     # Unblock a user
@@ -5543,7 +6039,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| user to unblock | 
+ **username** | **str**| username of the user to unblock | 
 
 ### Return type
 
