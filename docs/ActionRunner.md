@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **busy** | **bool** |  | [optional] 
+**disabled** | **bool** |  | [optional] 
 **ephemeral** | **bool** |  | [optional] 
 **id** | **int** |  | [optional] 
 **labels** | [**list[ActionRunnerLabel]**](ActionRunnerLabel.md) |  | [optional] 

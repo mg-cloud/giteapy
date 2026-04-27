@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **assignee** | **str** | deprecated | [optional] 
 **assignees** | **list[str]** |  | [optional] 
 **body** | **str** |  | [optional] 
+**content_version** | **int** | The current version of the issue content to detect conflicts during editing | [optional] 
 **due_date** | **datetime** |  | [optional] 
 **milestone** | **int** |  | [optional] 
 **ref** | **str** |  | [optional] 

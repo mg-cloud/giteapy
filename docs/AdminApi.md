@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**admin_create_org**](AdminApi.md#admin_create_org) | **POST** /admin/users/{username}/orgs | Create an organization
 [**admin_create_public_key**](AdminApi.md#admin_create_public_key) | **POST** /admin/users/{username}/keys | Add a public key on behalf of a user
 [**admin_create_repo**](AdminApi.md#admin_create_repo) | **POST** /admin/users/{username}/repos | Create a repository on behalf of a user
-[**admin_create_runner_registration_token**](AdminApi.md#admin_create_runner_registration_token) | **POST** /admin/actions/runners/registration-token | Get an global actions runner registration token
+[**admin_create_runner_registration_token**](AdminApi.md#admin_create_runner_registration_token) | **POST** /admin/actions/runners/registration-token | Get a global actions runner registration token
 [**admin_create_user**](AdminApi.md#admin_create_user) | **POST** /admin/users | Create a user
 [**admin_cron_list**](AdminApi.md#admin_cron_list) | **GET** /admin/cron | List cron tasks
 [**admin_cron_run**](AdminApi.md#admin_cron_run) | **POST** /admin/cron/{task} | Run cron task
@@ -24,18 +24,18 @@ Method | HTTP request | Description
 [**admin_get_all_emails**](AdminApi.md#admin_get_all_emails) | **GET** /admin/emails | List all emails
 [**admin_get_all_orgs**](AdminApi.md#admin_get_all_orgs) | **GET** /admin/orgs | List all organizations
 [**admin_get_hook**](AdminApi.md#admin_get_hook) | **GET** /admin/hooks/{id} | Get a hook
-[**admin_get_runner_registration_token**](AdminApi.md#admin_get_runner_registration_token) | **GET** /admin/runners/registration-token | Get an global actions runner registration token
 [**admin_list_hooks**](AdminApi.md#admin_list_hooks) | **GET** /admin/hooks | List system&#39;s webhooks
 [**admin_list_user_badges**](AdminApi.md#admin_list_user_badges) | **GET** /admin/users/{username}/badges | List a user&#39;s badges
 [**admin_rename_user**](AdminApi.md#admin_rename_user) | **POST** /admin/users/{username}/rename | Rename a user
 [**admin_search_emails**](AdminApi.md#admin_search_emails) | **GET** /admin/emails/search | Search all emails
 [**admin_search_users**](AdminApi.md#admin_search_users) | **GET** /admin/users | Search users according filter conditions
 [**admin_unadopted_list**](AdminApi.md#admin_unadopted_list) | **GET** /admin/unadopted | List unadopted repositories
-[**delete_admin_runner**](AdminApi.md#delete_admin_runner) | **DELETE** /admin/actions/runners/{runner_id} | Delete an global runner
-[**get_admin_runner**](AdminApi.md#get_admin_runner) | **GET** /admin/actions/runners/{runner_id} | Get an global runner
+[**delete_admin_runner**](AdminApi.md#delete_admin_runner) | **DELETE** /admin/actions/runners/{runner_id} | Delete a global runner
+[**get_admin_runner**](AdminApi.md#get_admin_runner) | **GET** /admin/actions/runners/{runner_id} | Get a global runner
 [**get_admin_runners**](AdminApi.md#get_admin_runners) | **GET** /admin/actions/runners | Get all runners
 [**list_admin_workflow_jobs**](AdminApi.md#list_admin_workflow_jobs) | **GET** /admin/actions/jobs | Lists all jobs
 [**list_admin_workflow_runs**](AdminApi.md#list_admin_workflow_runs) | **GET** /admin/actions/runs | Lists all runs
+[**update_admin_runner**](AdminApi.md#update_admin_runner) | **PATCH** /admin/actions/runners/{runner_id} | Update a global runner
 
 
 # **admin_add_user_badges**
@@ -197,7 +197,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 # **admin_create_runner_registration_token**
 > admin_create_runner_registration_token()
 
-Get an global actions runner registration token
+Get a global actions runner registration token
 
 ### Example
 ```python
@@ -584,7 +584,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
 
 try:
-    # Get an global actions runner registration token
+    # Get a global actions runner registration token
     api_instance.admin_create_runner_registration_token()
 except ApiException as e:
     print("Exception when calling AdminApi->admin_create_runner_registration_token: %s\n" % e)
@@ -603,7 +603,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -847,7 +847,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -927,7 +927,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1009,7 +1009,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1091,7 +1091,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1173,7 +1173,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1255,7 +1255,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1504,7 +1504,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1587,7 +1587,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1668,83 +1668,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **admin_get_runner_registration_token**
-> admin_get_runner_registration_token()
-
-Get an global actions runner registration token
-
-### Example
-```python
-from __future__ import print_function
-import time
-import giteapy
-from giteapy.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
-configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['access_token'] = 'Bearer'
-# Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
-configuration.api_key['Sudo'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Sudo'] = 'Bearer'
-# Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
-configuration.api_key['sudo'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sudo'] = 'Bearer'
-# Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
-configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
-# Configure API key authorization: Token
-configuration = giteapy.Configuration()
-configuration.api_key['token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['token'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
-
-try:
-    # Get an global actions runner registration token
-    api_instance.admin_get_runner_registration_token()
-except ApiException as e:
-    print("Exception when calling AdminApi->admin_get_runner_registration_token: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1829,7 +1753,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1910,7 +1834,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1992,7 +1916,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2077,13 +2001,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_search_users**
-> list[User] admin_search_users(source_id=source_id, login_name=login_name, page=page, limit=limit)
+> list[User] admin_search_users(source_id=source_id, login_name=login_name, page=page, limit=limit, sort=sort, order=order, q=q, visibility=visibility, is_active=is_active, is_admin=is_admin, is_restricted=is_restricted, is_2fa_enabled=is_2fa_enabled, is_prohibit_login=is_prohibit_login)
 
 Search users according filter conditions
 
@@ -2136,10 +2060,19 @@ source_id = 789 # int | ID of the user's login source to search for (optional)
 login_name = 'login_name_example' # str | identifier of the user, provided by the external authenticator (optional)
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
+sort = 'sort_example' # str | sort users by attribute. Supported values are \"name\", \"created\", \"updated\" and \"id\". Default is \"name\" (optional)
+order = 'order_example' # str | sort order, either \"asc\" (ascending) or \"desc\" (descending). Default is \"asc\", ignored if \"sort\" is not specified. (optional)
+q = 'q_example' # str | search term (username, full name, email) (optional)
+visibility = 'visibility_example' # str | visibility filter. Supported values are \"public\", \"limited\" and \"private\". (optional)
+is_active = true # bool | filter active users (optional)
+is_admin = true # bool | filter admin users (optional)
+is_restricted = true # bool | filter restricted users (optional)
+is_2fa_enabled = true # bool | filter 2FA enabled users (optional)
+is_prohibit_login = true # bool | filter login prohibited users (optional)
 
 try:
     # Search users according filter conditions
-    api_response = api_instance.admin_search_users(source_id=source_id, login_name=login_name, page=page, limit=limit)
+    api_response = api_instance.admin_search_users(source_id=source_id, login_name=login_name, page=page, limit=limit, sort=sort, order=order, q=q, visibility=visibility, is_active=is_active, is_admin=is_admin, is_restricted=is_restricted, is_2fa_enabled=is_2fa_enabled, is_prohibit_login=is_prohibit_login)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AdminApi->admin_search_users: %s\n" % e)
@@ -2153,6 +2086,15 @@ Name | Type | Description  | Notes
  **login_name** | **str**| identifier of the user, provided by the external authenticator | [optional] 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
+ **sort** | **str**| sort users by attribute. Supported values are \&quot;name\&quot;, \&quot;created\&quot;, \&quot;updated\&quot; and \&quot;id\&quot;. Default is \&quot;name\&quot; | [optional] 
+ **order** | **str**| sort order, either \&quot;asc\&quot; (ascending) or \&quot;desc\&quot; (descending). Default is \&quot;asc\&quot;, ignored if \&quot;sort\&quot; is not specified. | [optional] 
+ **q** | **str**| search term (username, full name, email) | [optional] 
+ **visibility** | **str**| visibility filter. Supported values are \&quot;public\&quot;, \&quot;limited\&quot; and \&quot;private\&quot;. | [optional] 
+ **is_active** | **bool**| filter active users | [optional] 
+ **is_admin** | **bool**| filter admin users | [optional] 
+ **is_restricted** | **bool**| filter restricted users | [optional] 
+ **is_2fa_enabled** | **bool**| filter 2FA enabled users | [optional] 
+ **is_prohibit_login** | **bool**| filter login prohibited users | [optional] 
 
 ### Return type
 
@@ -2164,7 +2106,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2249,7 +2191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2257,7 +2199,7 @@ Name | Type | Description  | Notes
 # **delete_admin_runner**
 > delete_admin_runner(runner_id)
 
-Delete an global runner
+Delete a global runner
 
 ### Example
 ```python
@@ -2307,7 +2249,7 @@ api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
 runner_id = 'runner_id_example' # str | id of the runner
 
 try:
-    # Delete an global runner
+    # Delete a global runner
     api_instance.delete_admin_runner(runner_id)
 except ApiException as e:
     print("Exception when calling AdminApi->delete_admin_runner: %s\n" % e)
@@ -2329,15 +2271,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_admin_runner**
-> get_admin_runner(runner_id)
+> ActionRunner get_admin_runner(runner_id)
 
-Get an global runner
+Get a global runner
 
 ### Example
 ```python
@@ -2387,8 +2329,9 @@ api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
 runner_id = 'runner_id_example' # str | id of the runner
 
 try:
-    # Get an global runner
-    api_instance.get_admin_runner(runner_id)
+    # Get a global runner
+    api_response = api_instance.get_admin_runner(runner_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling AdminApi->get_admin_runner: %s\n" % e)
 ```
@@ -2401,7 +2344,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ActionRunner**](ActionRunner.md)
 
 ### Authorization
 
@@ -2409,13 +2352,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_admin_runners**
-> get_admin_runners()
+> ActionRunnersResponse get_admin_runners(disabled=disabled)
 
 Get all runners
 
@@ -2464,20 +2407,25 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+disabled = true # bool | filter by disabled status (true or false) (optional)
 
 try:
     # Get all runners
-    api_instance.get_admin_runners()
+    api_response = api_instance.get_admin_runners(disabled=disabled)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling AdminApi->get_admin_runners: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disabled** | **bool**| filter by disabled status (true or false) | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**ActionRunnersResponse**](ActionRunnersResponse.md)
 
 ### Authorization
 
@@ -2485,7 +2433,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2570,7 +2518,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2663,7 +2611,90 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_admin_runner**
+> ActionRunner update_admin_runner(runner_id, body=body)
+
+Update a global runner
+
+### Example
+```python
+from __future__ import print_function
+import time
+import giteapy
+from giteapy.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = giteapy.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = giteapy.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = giteapy.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = giteapy.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = giteapy.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = giteapy.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = giteapy.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+runner_id = 'runner_id_example' # str | id of the runner
+body = giteapy.EditActionRunnerOption() # EditActionRunnerOption |  (optional)
+
+try:
+    # Update a global runner
+    api_response = api_instance.update_admin_runner(runner_id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdminApi->update_admin_runner: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **runner_id** | **str**| id of the runner | 
+ **body** | [**EditActionRunnerOption**](EditActionRunnerOption.md)|  | [optional] 
+
+### Return type
+
+[**ActionRunner**](ActionRunner.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
